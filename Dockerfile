@@ -61,5 +61,6 @@ EXPOSE 443
 #CMD ["/bin/bash", "code-server & caddy run &"]
 #CMD /bin/bash -c "cd /root/.local/share/code-server/workspace/code-server; caddy run & code-server"
 #CMD /bin/bash -c "cd /root/projects/code-server; source ~/.profile; caddy run & code-server --disable-telemetry & cat ~/.config/code-server/config.yaml; fg;"
-CMD /bin/bash -c "cd /root/projects/code-server; source ~/.profile; caddy run & code-server --disable-telemetry"
+#CMD /bin/bash -c "cd /root/projects/code-server; source ~/.profile; caddy run & code-server --disable-telemetry"
+CMD /bin/bash -c "cd /root/projects/code-server; eval $(ssh-agent -s) ssh-add ~/.ssh/id_rsa; source ~/.profile; caddy run & code-server --disable-telemetry"
 #CMD /bin/bash -c "cd /config/code-server/workspace/code-server; caddy run & code-server --disable-telemetry"
